@@ -8,7 +8,7 @@ public class Piece : Tile
     void Start()
     {
         // The tile this piece is currently on
-        Tile currentLocation;
+        // Tile currentLocation;
     }
 
     // Update is called once per frame

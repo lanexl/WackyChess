@@ -31,9 +31,11 @@ public class GameGrid : MonoBehaviour
 
     private GameObject tileSelector;
     public GameObject TileSelector { get { return tileSelector; } }
-    private Color green = new Color(0, 255, 0);
-    public Color Green { get { return green; } }
-    private Color red = new Color(255, 0, 0);
+    private Color lightBlue = new Color(40f / 255f, 1f, 229f / 255f);
+    public Color LightBlue { get { return lightBlue; } }
+    private Color lightGreen = new Color(134f / 255f, 1f, 40f / 255f);
+    public Color LightGreen { get { return lightGreen; } }
+    private Color red = new Color(186f / 255f, 27f / 255f, 27f / 255f);
     public Color Red { get { return red; } }
     public bool Dragging { get { return dragTarget != null; } }
 
@@ -41,6 +43,7 @@ public class GameGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start begin");
         SetupPhase = true;
 
         tileSelector = GameObject.Find("TileSelector");
@@ -48,6 +51,8 @@ public class GameGrid : MonoBehaviour
 
         entities = new List<GameObject>();
         area = new Rect(transform.position.x - transform.localScale.x / 2f, transform.position.y - transform.localScale.y / 2f, transform.localScale.x, transform.localScale.y);
+        Debug.Log("Start end");
+
     }
 
     // adds a new entity to the board, if a unit is already there, does nothing
@@ -133,11 +138,11 @@ public class GameGrid : MonoBehaviour
                     Vector3 pos = entities[i].transform.position;
                     float scale = entities[i].transform.localScale.x;
                     Rect area = new Rect(pos.x - scale / 2f, pos.y - scale / 2f, scale, scale);
-                    //if (area.Contains(worldMouse) && unitScript != null && unitScript.IsAlly)
-                    //{
-                    //    dragTarget = entities[i];
-                    //    //entities.RemoveAt(i);
-                    //}
+                    if (area.Contains(worldMouse) && unitScript != null)
+                    {
+                        dragTarget = entities[i];
+                        entities.RemoveAt(i);
+                    }
                 }
             }
 
@@ -152,12 +157,13 @@ public class GameGrid : MonoBehaviour
                 Vector2 hovered = Vector2.zero;
                 if (area.Contains(worldMouse))
                 {
+                    Debug.Log("hovering");
                     hovered = WorldToTile(worldMouse);
                     tileSelector.transform.position = TileToTransform(hovered);
 
                     if (hovered.y < PlaceLimit && (hovered.Equals(dragTarget.GetComponent<Piece>().GridPosition) || GetEntityAt((int)hovered.x, (int)hovered.y) == null))
                     {
-                        tileSelector.GetComponent<SpriteRenderer>().color = green;
+                        tileSelector.GetComponent<SpriteRenderer>().color = lightGreen;
                         canPlace = true;
                     }
                     else
@@ -171,6 +177,8 @@ public class GameGrid : MonoBehaviour
                 {
                     if (canPlace)
                     {
+                        Debug.Log("Unit Placeable");
+
                         dragTarget.transform.position = TileToTransform(hovered);
                         dragTarget.GetComponent<Piece>().MatchTileToPosition();
                     }

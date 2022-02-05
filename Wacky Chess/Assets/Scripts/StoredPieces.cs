@@ -19,17 +19,19 @@ public class StoredPieces : MonoBehaviour
         selected = -1;
 
         // define snap points
-        buttons = new Rect[10];
-        for (int i = 0; i < 10; i += 2)
+        buttons = new Rect[grid.dims];
+        for (int i = 0; i < grid.dims; i += 2)
         {
             buttons[i] = new Rect(-7.75f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
             buttons[i + 1] = new Rect(-6.25f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
         }
+        
 
         // load purchased units from shop
         unitIcons = new List<GameObject>();
 
         // temporary for test
+        Debug.Log("Object Instantiating");
         GameObject icon = Instantiate(iconPrefab);
         icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
         icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
@@ -59,26 +61,32 @@ public class StoredPieces : MonoBehaviour
         Vector3 worldMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // make all borders invisible by default
-        for (int i = 0; i < unitIcons.Count; i++)
+        for (int i = 0; i < unitIcons.Count+1; i++)
         { // uses units count as limit so it will ony select if a unit is actually there
             if (i == selected)
             {
+                Debug.Log("i is selected");
                 // ignore selected icon
                 continue;
             }
 
-            SetBorderColor(i, new Color(0f, 0f, 0f, 0f));
+            //SetBorderColor(i, new Color(0f, 0f, 0f, 0f));
+            //Debug.Log("Border set to clear");
+
             if (buttons[i].Contains(worldMouse))
             {
+                Debug.Log("Mouse In Button");
                 if (Input.GetMouseButtonDown(0))
                 {
-                    SetBorderColor(i, grid.Green);
+                    Debug.Log("Setting border to green");
+                    SetBorderColor(i, grid.LightGreen);
                     selected = i;
                 }
-                else
-                {
-                    SetBorderColor(i, grid.Green);
-                }
+                //else
+                //{
+                //    Debug.Log(i);
+                //    SetBorderColor(i, grid.LightBlue);
+                //}
                 break;
             }
         }
@@ -91,6 +99,7 @@ public class StoredPieces : MonoBehaviour
             grid.TileSelector.transform.position = new Vector3(-9999f, -9999f, 0f); // hidden offscreen
             if (grid.Area.Contains(worldMouse))
             {
+                Debug.Log("checking for tiles");
                 Vector2 hoveredTile = grid.WorldToTile(worldMouse);
 
                 grid.TileSelector.transform.position = grid.TileToTransform(hoveredTile); // snap selector to tile
@@ -98,7 +107,7 @@ public class StoredPieces : MonoBehaviour
                 // determine if unit can be placed there
                 if (hoveredTile.y < grid.PlaceLimit && grid.GetEntityAt((int)hoveredTile.x, (int)hoveredTile.y) == null)
                 {
-                    grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.Green;
+                    grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.LightGreen;
                     canPlace = true;
                 }
                 else
@@ -129,9 +138,9 @@ public class StoredPieces : MonoBehaviour
         }
     }
 
-    // sets the border of an icon to the input color
-    private void SetBorderColor(int index, Color newColor)
-    {
-        unitIcons[index].transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = newColor;
-    }
+   // sets the border of an icon to the input color
+   private void SetBorderColor(int index, Color newColor)
+   {
+       unitIcons[index].transform.gameObject.GetComponent<SpriteRenderer>().color = newColor;
+   }
 }
