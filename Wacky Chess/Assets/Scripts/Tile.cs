@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    protected Vector2 gridPosition;
+    public Vector2 GridPosition { get { return gridPosition; } }
+    public BattleGrid grid; // when added to the grid, the grid sets this variable to itself
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gridPosition = grid.WorldToTile(transform.position);
     }
 }
