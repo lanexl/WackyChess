@@ -8,6 +8,9 @@ public class StoredPieces : MonoBehaviour
     public GameGrid grid;
     public GameObject iconPrefab;
     public GameObject tempPrefab;
+    public ZigZagger zigZaggerPrefab;
+    public Player player1;
+    public Player player2;
 
     private List<GameObject> unitIcons; // unit prefabs to be placed on the board
     private Rect[] buttons; // locations on screen that unit icons snap to
@@ -33,6 +36,7 @@ public class StoredPieces : MonoBehaviour
         // temporary for test
         Debug.Log("Object Instantiating");
         GameObject icon = Instantiate(iconPrefab);
+        player1.pieceList[0] = Instantiate(zigZaggerPrefab);
         icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
         icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
         unitIcons.Add(icon);

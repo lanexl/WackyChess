@@ -159,6 +159,10 @@ MonoBehaviour:
     type: 3}
   tempPrefab: {fileID: 6912866549956458618, guid: 90fd0d226057fd74a92bbd2b980924ec,
     type: 3}
+  zigZaggerPrefab: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
+    type: 3}
+  player1: {fileID: 1449912268}
+  player2: {fileID: 1909978689}
 --- !u!212 &33848818
 SpriteRenderer:
   m_ObjectHideFlags: 0
