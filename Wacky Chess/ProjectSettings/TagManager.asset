@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Piece Layer
+    uniqueID: 2272156915
+    locked: 0
