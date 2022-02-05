@@ -614,6 +614,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
+  pieceList: []
+  zigZagger1: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
+    type: 3}
+  zigZagger2: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
+    type: 3}
+  chainKiller1: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
+    type: 3}
+  chainKiller2: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
+    type: 3}
+  cannon1: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
+    type: 3}
+  cannon2: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
+    type: 3}
+  suicideBomber: {fileID: 2879278183147872809, guid: f240ee7ff5ee4a84ebc6228c154ae917,
+    type: 3}
+  vip: {fileID: 8174422246148803460, guid: 3e688a9ae935e9a469740ff8ad4f1486, type: 3}
+  cannonFodder1: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder2: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder3: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder4: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder5: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder6: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder7: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder8: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
 --- !u!4 &1449912269
 Transform:
   m_ObjectHideFlags: 0
@@ -721,6 +753,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
+  pieceList: []
+  zigZagger1: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
+    type: 3}
+  zigZagger2: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
+    type: 3}
+  chainKiller1: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
+    type: 3}
+  chainKiller2: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
+    type: 3}
+  cannon1: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
+    type: 3}
+  cannon2: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
+    type: 3}
+  suicideBomber: {fileID: 2879278183147872809, guid: f240ee7ff5ee4a84ebc6228c154ae917,
+    type: 3}
+  vip: {fileID: 8174422246148803460, guid: 3e688a9ae935e9a469740ff8ad4f1486, type: 3}
+  cannonFodder1: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder2: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder3: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder4: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder5: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder6: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder7: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  cannonFodder8: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
 --- !u!4 &1909978690
 Transform:
   m_ObjectHideFlags: 0
