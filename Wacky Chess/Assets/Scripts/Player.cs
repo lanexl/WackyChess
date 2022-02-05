@@ -60,6 +60,17 @@ public class Player : MonoBehaviour
     /// </summary>
     public void removePiece(Piece pieceToRemove)
     {
-        pieceList.Remove(pieceToRemove);
+        for (int i = 0; i < pieceList.Count; i++)
+        {
+            if(pieceList.IndexOf(pieceToRemove) != -1)
+            {
+                int indexToRemove = pieceList.IndexOf(pieceToRemove);
+                GameObject.Destroy(pieceList[indexToRemove]);
+                pieceList.RemoveAt(indexToRemove);
+                return;
+            }
+        }
+        // Throw a message to the console if piece was not found
+        Debug.Log("Piece was not found and can't be removed");
     }
 }
