@@ -15,4 +15,14 @@ public class ZigZagger : Piece
     {
         
     }
+
+    /// <summary>
+    /// Returns a list of possible tiles that this Zig Zagger Piece can move to. Zig Zagger Pieces move in a zig zag (2 diagonal one way, 2 diagonal another way)
+    /// </summary>
+    /// <returns></returns>
+    public override List<Tile> PossibleMoves()
+    {
+        List<Tile> tempTileList = new List<Tile>();
+        return tempTileList;
+    }
 }
