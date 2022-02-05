@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,13 +11,18 @@ public class GameManager : MonoBehaviour
         // Integer indicating which players turn it currently is
         // 1 = Player 1's / Whites turn
         // 2 = Player 2'1 / Blacks turn
-        int activePlayer;
+        //int activePlayer;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void GameStart()
+    {
+        SceneManager.LoadScene("Game Scene");
     }
 
     /// <summary>

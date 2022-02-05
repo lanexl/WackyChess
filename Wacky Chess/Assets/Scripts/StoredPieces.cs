@@ -8,6 +8,7 @@ public class StoredPieces : MonoBehaviour
     public GameGrid grid;
     public GameObject iconPrefab;
     public GameObject tempPrefab;
+    public ZigZagger zigZaggerIconPrefab;
     public ZigZagger zigZaggerPrefab;
     public Player player1;
     public Player player2;
@@ -34,22 +35,27 @@ public class StoredPieces : MonoBehaviour
         unitIcons = new List<GameObject>();
 
         // temporary for test
-        Debug.Log("Object Instantiating");
+        //Debug.Log("Object Instantiating");
         GameObject icon = Instantiate(iconPrefab);
         player1.pieceList[0] = Instantiate(zigZaggerPrefab);
-        icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-        icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+        //icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+        //icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+        //unitIcons.Add(icon);
+
+        //ZigZagger zigZaggerIcon = Instantiate(zigZaggerIconPrefab);
+        zigZaggerPrefab.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+        zigZaggerPrefab.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
         unitIcons.Add(icon);
 
-        icon = Instantiate(iconPrefab);
-        icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-        icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-        unitIcons.Add(icon);
-
-        icon = Instantiate(iconPrefab);
-        icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-        icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-        unitIcons.Add(icon);
+       // icon = Instantiate(iconPrefab);
+       // icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+       // icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+       // unitIcons.Add(icon);
+       //
+       // icon = Instantiate(iconPrefab);
+       // icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+       // icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+       // unitIcons.Add(icon);
 
         PlaceIcons();
     }
