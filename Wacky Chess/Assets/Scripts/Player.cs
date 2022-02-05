@@ -8,24 +8,43 @@ public class Player : MonoBehaviour
     // Player 1 = white
     // Player 2 = black
     public int playerID;
-    List<Piece> pieceList = new List<Piece>();
+    public List<Piece> pieceList = new List<Piece>();
+    public ZigZagger zigZagger1;
+    public ZigZagger zigZagger2;
+    public ChainKiller chainKiller1;
+    public ChainKiller chainKiller2;
+    public Cannon cannon1;
+    public Cannon cannon2;
+    public SuicideBomber suicideBomber;
+    public Vip vip;
+    public CannonFodder cannonFodder1;
+    public CannonFodder cannonFodder2;
+    public CannonFodder cannonFodder3;
+    public CannonFodder cannonFodder4;
+    public CannonFodder cannonFodder5;
+    public CannonFodder cannonFodder6;
+    public CannonFodder cannonFodder7;
+    public CannonFodder cannonFodder8;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Create and add all 16 pieces to the piecelist
-        pieceList.Add(new ZigZagger());
-        pieceList.Add(new ZigZagger());
-        pieceList.Add(new ChainKiller());
-        pieceList.Add(new ChainKiller());
-        pieceList.Add(new Cannon());
-        pieceList.Add(new Cannon());
-        pieceList.Add(new SuicideBomber());
-        pieceList.Add(new Vip());
-        for (int i = 0; i < 8; i++)
-        {
-            pieceList.Add(new CannonFodder());
-        }
+        pieceList.Add(zigZagger1);
+        pieceList.Add(zigZagger2);
+        pieceList.Add(chainKiller1);
+        pieceList.Add(chainKiller2);
+        pieceList.Add(cannon1);
+        pieceList.Add(cannon2);
+        pieceList.Add(suicideBomber);
+        pieceList.Add(vip);
+        pieceList.Add(cannonFodder1);
+        pieceList.Add(cannonFodder2);
+        pieceList.Add(cannonFodder3);
+        pieceList.Add(cannonFodder4);
+        pieceList.Add(cannonFodder5);
+        pieceList.Add(cannonFodder6);
+        pieceList.Add(cannonFodder7);
+        pieceList.Add(cannonFodder8);
 
 
     }
