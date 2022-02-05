@@ -36,14 +36,14 @@ public class StoredPieces : MonoBehaviour
         Cannon whiteCannon2 = Instantiate(cannonPrefab);
         Bomber whiteBomber = Instantiate(bomberPrefab);
         Vip whiteVip = Instantiate(vipPrefab);
-        CannonFodder whiteCannonFodder1 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder2 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder3 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder4 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder5 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder6 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder7 = Instantiate(cannonFodderPrefab);
-        CannonFodder whiteCannonFodder8 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder1 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder2 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder3 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder4 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder5 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder6 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder7 = Instantiate(cannonFodderPrefab);
+        //CannonFodder whiteCannonFodder8 = Instantiate(cannonFodderPrefab);
 
         whitePieceList.Add(whiteZigZagger1);
         whitePieceList.Add(whiteZigZagger2);
@@ -53,49 +53,49 @@ public class StoredPieces : MonoBehaviour
         whitePieceList.Add(whiteCannon2);
         whitePieceList.Add(whiteBomber);
         whitePieceList.Add(whiteVip);
-        whitePieceList.Add(whiteCannonFodder1);
-        whitePieceList.Add(whiteCannonFodder2);
-        whitePieceList.Add(whiteCannonFodder3);
-        whitePieceList.Add(whiteCannonFodder4);
-        whitePieceList.Add(whiteCannonFodder5);
-        whitePieceList.Add(whiteCannonFodder6);
-        whitePieceList.Add(whiteCannonFodder7);
-        whitePieceList.Add(whiteCannonFodder8);
+        //whitePieceList.Add(whiteCannonFodder1);
+        //whitePieceList.Add(whiteCannonFodder2);
+        //whitePieceList.Add(whiteCannonFodder3);
+        //whitePieceList.Add(whiteCannonFodder4);
+        //whitePieceList.Add(whiteCannonFodder5);
+        //whitePieceList.Add(whiteCannonFodder6);
+        //whitePieceList.Add(whiteCannonFodder7);
+        //whitePieceList.Add(whiteCannonFodder8);
 
         // Create and Instantiate Black Pieces
-        ZigZagger blackZigZagger1 = Instantiate(zigZaggerPrefab);
-        ZigZagger blackZigZagger2 = Instantiate(zigZaggerPrefab);
-        ChainKiller blackChainKiller1 = Instantiate(chainKillerPrefab);
-        ChainKiller blackChainKiller2 = Instantiate(chainKillerPrefab);
-        Cannon blackCannon1 = Instantiate(cannonPrefab);
-        Cannon blackCannon2 = Instantiate(cannonPrefab);
-        Bomber blackBomber = Instantiate(bomberPrefab);
-        Vip blackVip = Instantiate(vipPrefab);
-        CannonFodder blackCannonFodder1 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder2 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder3 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder4 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder5 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder6 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder7 = Instantiate(cannonFodderPrefab);
-        CannonFodder blackCannonFodder8 = Instantiate(cannonFodderPrefab);
+        //ZigZagger blackZigZagger1 = Instantiate(zigZaggerPrefab);
+        //ZigZagger blackZigZagger2 = Instantiate(zigZaggerPrefab);
+        //ChainKiller blackChainKiller1 = Instantiate(chainKillerPrefab);
+        //ChainKiller blackChainKiller2 = Instantiate(chainKillerPrefab);
+        //Cannon blackCannon1 = Instantiate(cannonPrefab);
+        //Cannon blackCannon2 = Instantiate(cannonPrefab);
+        //Bomber blackBomber = Instantiate(bomberPrefab);
+        //Vip blackVip = Instantiate(vipPrefab);
+        //CannonFodder blackCannonFodder1 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder2 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder3 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder4 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder5 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder6 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder7 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blackCannonFodder8 = Instantiate(cannonFodderPrefab);
 
-        blackPieceList.Add(whiteZigZagger1);
-        blackPieceList.Add(whiteZigZagger2);
-        blackPieceList.Add(whiteChainKiller1);
-        blackPieceList.Add(whiteChainKiller2);
-        blackPieceList.Add(whiteCannon1);
-        blackPieceList.Add(whiteCannon2);
-        blackPieceList.Add(whiteBomber);
-        blackPieceList.Add(whiteVip);
-        blackPieceList.Add(whiteCannonFodder1);
-        blackPieceList.Add(whiteCannonFodder2);
-        blackPieceList.Add(whiteCannonFodder3);
-        blackPieceList.Add(whiteCannonFodder4);
-        blackPieceList.Add(whiteCannonFodder5);
-        blackPieceList.Add(whiteCannonFodder6);
-        blackPieceList.Add(whiteCannonFodder7);
-        blackPieceList.Add(whiteCannonFodder8);
+        //blackPieceList.Add(whiteZigZagger1);
+        //blackPieceList.Add(whiteZigZagger2);
+        //blackPieceList.Add(whiteChainKiller1);
+        //blackPieceList.Add(whiteChainKiller2);
+        //blackPieceList.Add(whiteCannon1);
+        //blackPieceList.Add(whiteCannon2);
+        //blackPieceList.Add(whiteBomber);
+        //blackPieceList.Add(whiteVip);
+        //blackPieceList.Add(whiteCannonFodder1);
+        //blackPieceList.Add(whiteCannonFodder2);
+        //blackPieceList.Add(whiteCannonFodder3);
+        //blackPieceList.Add(whiteCannonFodder4);
+        //blackPieceList.Add(whiteCannonFodder5);
+        //blackPieceList.Add(whiteCannonFodder6);
+        //blackPieceList.Add(whiteCannonFodder7);
+        //blackPieceList.Add(whiteCannonFodder8);
 
         selected = -1;
 
@@ -201,6 +201,7 @@ public class StoredPieces : MonoBehaviour
                 //GameObject deleteThis = whitePieceList[selected];
                 Destroy(whitePieceList[selected]);
                 whitePieceList.RemoveAt(selected);
+
                 //Destroy(deleteThis);
                 selected = -1; // nothing selected
                 //PlaceIcons(); // move icons
