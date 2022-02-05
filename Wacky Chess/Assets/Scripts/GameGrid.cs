@@ -193,13 +193,13 @@ public class GameGrid : MonoBehaviour
             {
                 if (IsUnit(entities[i]))
                 {
-                    if (entities[i].GetComponent<Piece>().Health <= 0)
-                    {
-                        DestroyImmediate(entities[i]);
-                        entities.RemoveAt(i);
-                        i--;
-
-                    }
+                    //if (entities[i].GetComponent<Piece>().Health <= 0)
+                    //{
+                    //    DestroyImmediate(entities[i]);
+                    //    entities.RemoveAt(i);
+                    //    i--;
+                    //
+                    //}
                 }
             }
         }

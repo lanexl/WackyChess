@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piece : MonoBehaviour
+public class Piece : Tile
 {
     // Start is called before the first frame update
     void Start()
@@ -34,5 +34,10 @@ public class Piece : MonoBehaviour
     public void MovePiece(Tile newLocation)
     {
 
+    }
+
+    public void MatchTileToPosition()
+    {
+        gridPosition = grid.WorldToTile(transform.position);
     }
 }
