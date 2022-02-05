@@ -112,21 +112,22 @@ public class StoredPieces : MonoBehaviour
         //unitIcons = new List<GameObject>();
 
         // temporary for test
-       // Debug.Log("Object Instantiating");
-       // GameObject icon = Instantiate(iconPrefab);
-       // icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-       // icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-       // unitIcons.Add(icon);
-       // 
-       // icon = Instantiate(iconPrefab);
-       // icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-       // icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-       // unitIcons.Add(icon);
-       // 
-       // icon = Instantiate(iconPrefab);
-       // icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-       // icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-       // unitIcons.Add(icon);
+        Debug.Log("Object Instantiating");
+        GameObject icon = Instantiate(iconPrefab);
+        player1.pieceList[0] = Instantiate(zigZaggerPrefab);
+        icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+        icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+        unitIcons.Add(icon);
+
+        icon = Instantiate(iconPrefab);
+        icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+        icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+        unitIcons.Add(icon);
+
+        icon = Instantiate(iconPrefab);
+        icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
+        icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
+        unitIcons.Add(icon);
 
         //PlaceIcons();
         PlacePieces();
