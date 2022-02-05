@@ -155,14 +155,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconWidth: 1
   grid: {fileID: 176237349}
-  iconPrefab: {fileID: 6027848379647839312, guid: d30526a447369b144be42cfae1edf024,
-    type: 3}
-  tempPrefab: {fileID: 6912866549956458618, guid: 90fd0d226057fd74a92bbd2b980924ec,
-    type: 3}
   zigZaggerPrefab: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
     type: 3}
-  player1: {fileID: 1449912268}
-  player2: {fileID: 1909978689}
+  chainKillerPrefab: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
+    type: 3}
+  cannonPrefab: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
+    type: 3}
+  bomberPrefab: {fileID: 2879278183147872809, guid: f240ee7ff5ee4a84ebc6228c154ae917,
+    type: 3}
+  vipPrefab: {fileID: 8174422246148803460, guid: 3e688a9ae935e9a469740ff8ad4f1486,
+    type: 3}
+  cannonFodderPrefab: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
+    type: 3}
+  whitePieceList: []
+  blackPieceList: []
 --- !u!212 &33848818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -229,7 +235,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &176237348
 GameObject:
@@ -331,7 +337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313852694
 GameObject:
@@ -416,7 +422,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459971805
 GameObject:
@@ -483,7 +489,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -567,7 +573,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1449912267
 GameObject:
@@ -599,38 +605,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
-  pieceList: []
-  zigZagger1: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
-    type: 3}
-  zigZagger2: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
-    type: 3}
-  chainKiller1: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
-    type: 3}
-  chainKiller2: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
-    type: 3}
-  cannon1: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
-    type: 3}
-  cannon2: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
-    type: 3}
-  suicideBomber: {fileID: 2879278183147872809, guid: f240ee7ff5ee4a84ebc6228c154ae917,
-    type: 3}
-  vip: {fileID: 8174422246148803460, guid: 3e688a9ae935e9a469740ff8ad4f1486, type: 3}
-  cannonFodder1: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder2: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder3: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder4: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder5: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder6: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder7: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder8: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
 --- !u!4 &1449912269
 Transform:
   m_ObjectHideFlags: 0
@@ -644,7 +618,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1520271792
 LightingSettings:
@@ -738,38 +712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
-  pieceList: []
-  zigZagger1: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
-    type: 3}
-  zigZagger2: {fileID: -4555712302122899260, guid: 641d3c6389b90d543a1a02af7b42e35b,
-    type: 3}
-  chainKiller1: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
-    type: 3}
-  chainKiller2: {fileID: -9057435829560135966, guid: d5666bb584748d641b016b0c27606830,
-    type: 3}
-  cannon1: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
-    type: 3}
-  cannon2: {fileID: -4362323493678772724, guid: 28530132c5b64fb4485e2ec7171a328b,
-    type: 3}
-  suicideBomber: {fileID: 2879278183147872809, guid: f240ee7ff5ee4a84ebc6228c154ae917,
-    type: 3}
-  vip: {fileID: 8174422246148803460, guid: 3e688a9ae935e9a469740ff8ad4f1486, type: 3}
-  cannonFodder1: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder2: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder3: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder4: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder5: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder6: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder7: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
-  cannonFodder8: {fileID: -7480995131104813065, guid: 8dd079d5ec2610741b2fdbf064c3925a,
-    type: 3}
 --- !u!4 &1909978690
 Transform:
   m_ObjectHideFlags: 0
@@ -783,5 +725,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
