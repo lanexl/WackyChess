@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PieceStorage: MonoBehaviour
 {
-    public GameObject UnitPrefab;
+    public Piece storedPiece;
 }

@@ -155,7 +155,6 @@ public class StoredPieces : MonoBehaviour
         { // uses units count as limit so it will ony select if a unit is actually there
             if (i == selected)
             {
-                Debug.Log("i is selected");
                 // ignore selected icon
                 continue;
             }
@@ -165,11 +164,9 @@ public class StoredPieces : MonoBehaviour
 
             if (buttons[i].Contains(worldMouse))
             {
-                Debug.Log("Mouse In Button");
                 if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("Setting border to green");
-                    SetBorderColor(i, grid.LightGreen);
+                    //SetBorderColor(i, grid.LightGreen);
                     selected = i;
                 }
                 break;
@@ -206,7 +203,9 @@ public class StoredPieces : MonoBehaviour
             {
                 if(blueTurnToPlace == true)
                 {
-                    grid.PlacePiece(bluePieceList[selected], grid.WorldToTile(worldMouse), "blue");
+                    grid.PlacePiece(bluePieceList[selected].GetComponent<Piece>(), grid.WorldToTile(worldMouse), "blue");
+                    removeButton(buttons, selected);
+                    //removePiece(bluePieceList[selected]);
                 }
                 else if(redTurnToPlace == true)
                 {
@@ -216,7 +215,7 @@ public class StoredPieces : MonoBehaviour
                 //GameObject deleteThis = bluePieceList[selected];
                 //Destroy(bluePieceList[selected]);
                 //bluePieceList.RemoveAt(selected);
-                removePiece(bluePieceList[selected]);
+                
                 //Destroy(deleteThis);
                 selected = -1; // nothing selected
                 //PlaceIcons(); // move icons
@@ -235,13 +234,13 @@ public class StoredPieces : MonoBehaviour
     }
 
     // sets the border of an icon to the input color
-    private void SetBorderColor(int index, Color newColor)
-    {
-       bluePieceList[index].transform.gameObject.GetComponent<SpriteRenderer>().color = newColor;
-    }
+    //private void SetBorderColor(int index, Color newColor)
+    //{
+    //   bluePieceList[index].transform.gameObject.GetComponent<SpriteRenderer>().color = newColor;
+    //}
 
     /// <summary>
-    /// Method to remove a piece that has been captured from this players piece list. Piece will be destroyed and then removed from the list
+    /// Method to remove a piece that has been captured from this player's piece list. Piece will be destroyed and then removed from the list
     /// </summary>
     public void removePiece(Piece pieceToRemove)
     {
@@ -270,5 +269,14 @@ public class StoredPieces : MonoBehaviour
         }
         // Throw a message to the console if piece was not found
         Debug.Log("Piece was not found and can't be removed");
+    }
+
+    public void removeButton(Rect[] buttonList, int index)
+    {
+        if (buttonList.Length != -1)
+        {
+            Vector2 blank = new Vector2(1, 1);
+            buttonList[index] = new Rect(iconWidth*100, iconWidth * 100, iconWidth * 100, iconWidth * 100);
+        }
     }
 }
