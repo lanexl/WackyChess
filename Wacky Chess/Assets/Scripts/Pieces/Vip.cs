@@ -22,7 +22,7 @@ public class Vip : Piece
     /// Returns a list of possible tiles that this Vip Piece can move to. Vip Pieces move and attack any adjacent square.
     /// </summary>
     /// <returns></returns>
-    public override List<Tile> PossibleMoves()
+    public override List<float> PossibleMoves()
     {
         /*
          * Possible Moves: 
@@ -35,7 +35,7 @@ public class Vip : Piece
          * Up: y+1.5
          * Down: x+1.5
         */
-        List<Tile> tempTileList = new List<Tile>();
-        return tempTileList;
+        List<float> tempFloatList = new List<float>();
+        return tempFloatList;
     }
 }

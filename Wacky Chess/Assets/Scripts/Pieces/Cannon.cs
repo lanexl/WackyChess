@@ -21,7 +21,7 @@ public class Cannon : Piece
     /// It attacks by shooting a piece within 2 rows in front of it in a 3X3 row. Cannon may not move and attack in the same turn.
     /// </summary>
     /// <returns></returns>
-    public override List<Tile> PossibleMoves()
+    public override List<float> PossibleMoves()
     {
         /*
          * Possible Moves: 
@@ -34,7 +34,7 @@ public class Cannon : Piece
          * Up: y+1.5
          * Down: x+1.5
         */
-        List<Tile> tempTileList = new List<Tile>();
-        return tempTileList;
+        List<float> tempFloatList = new List<float>();
+        return tempFloatList;
     }
 }
