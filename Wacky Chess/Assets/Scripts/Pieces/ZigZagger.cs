@@ -22,7 +22,18 @@ public class ZigZagger : Piece
     /// <returns></returns>
     public override List<Tile> PossibleMoves()
     {
+        /*
+         * Possible Moves: 
+         * Up-Left: x-1.5, y+4.5
+         * Up-Right: x+1.5, y+4.5
+         * Down-Left: x-1.5, y-4.5
+         * Down-Right: x+1.5, y-4.5
+         * Left: x-4.5
+         * Right
+        */
+
         List<Tile> tempTileList = new List<Tile>();
+        
         return tempTileList;
     }
 }
