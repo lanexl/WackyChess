@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Vip : Piece
 {
+    protected bool inCheck;
     // Start is called before the first frame update
     void Start()
     {
+        inCheck = false;
         
     }
 

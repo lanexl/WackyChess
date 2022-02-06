@@ -17,7 +17,8 @@ public class ChainKiller : Piece
     }
 
     /// <summary>
-    /// Returns a list of possible tiles that this Chain Killer Piece can move to. Chain Killer Pieces can attack any piece in a forward diagonal square and continue attacking in a chain up to 3 pieces total.
+    /// Returns a list of possible tiles that this Chain Killer Piece can move to. 
+    /// Chain Killer Pieces can move up to three times in a diagonal direction of the player's choice, and can attack any enemy tiles it lands on.
     /// </summary>
     /// <returns></returns>
     public override List<Tile> PossibleMoves()

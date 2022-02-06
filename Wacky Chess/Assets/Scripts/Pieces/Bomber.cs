@@ -17,9 +17,9 @@ public class Bomber : Piece
     }
 
     /// <summary>
-    /// Returns a list of possible tiles that this Suicide Bomber Piece can move to. Suicide Bomber pieces move 1 square 
-    /// adjacent and may use a turn to arm a bomb. At the end of the next turn, bomb detonates and detroys this piece and any adjacent pieces
-    /// (friendly or enemy). Piece cannot move and arm bomb during the same turn. Also cannot move after bomb is armed.
+    /// Returns a list of possible tiles that this Bomber Piece can move to. Bomber pieces move 1 square 
+    /// in any direction. If an enemy tile is on the square, the Bomber explodes, destroying any pieces
+    /// within 1 tile surrounding the attacked enemy
     /// </summary>
     /// <returns></returns>
     public override List<Tile> PossibleMoves()
