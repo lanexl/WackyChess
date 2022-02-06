@@ -212,11 +212,11 @@ public class StoredPieces : MonoBehaviour
                 {
                     grid.PlacePiece(redPieceList[selected], grid.WorldToTile(worldMouse), "red");
                 }
-                
-                //GameObject deleteThis = bluePieceList[selected];
-                Destroy(bluePieceList[selected]);
-                bluePieceList.RemoveAt(selected);
 
+                //GameObject deleteThis = bluePieceList[selected];
+                //Destroy(bluePieceList[selected]);
+                //bluePieceList.RemoveAt(selected);
+                removePiece(bluePieceList[selected]);
                 //Destroy(deleteThis);
                 selected = -1; // nothing selected
                 //PlaceIcons(); // move icons
