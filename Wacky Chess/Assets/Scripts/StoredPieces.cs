@@ -8,6 +8,8 @@ public class StoredPieces : MonoBehaviour
     public GameGrid grid;
     bool blueTurnToPlace;
     bool redTurnToPlace;
+    int bluePiecesPlaced;
+    int redPiecesPlaced;
 
     //public GameObject iconPrefab;
     //public GameObject tempPrefab;
@@ -21,7 +23,8 @@ public class StoredPieces : MonoBehaviour
     public CannonFodder cannonFodderPrefab;
 
     //private List<GameObject> unitIcons; // unit prefabs to be placed on the board
-    private Rect[] buttons; // locations on screen that unit icons snap to
+    private Rect[] blueButtons; // locations on screen that unit icons snap to
+    private Rect[] redButtons; 
     private int selected; // index of currently selected unit to be placed
 
     public List<Piece> bluePieceList = new List<Piece>();
@@ -33,6 +36,8 @@ public class StoredPieces : MonoBehaviour
         // Blue places before red at the start of the game
         blueTurnToPlace = true;
         redTurnToPlace = false;
+        bluePiecesPlaced = 0;
+        redPiecesPlaced = 0;
 
         // Create and Instantiate blue Pieces
         ZigZagger blueZigZagger1 = Instantiate(zigZaggerPrefab);
@@ -70,14 +75,14 @@ public class StoredPieces : MonoBehaviour
         //bluePieceList.Add(blueCannonFodder8);
 
         // Create and Instantiate red Pieces
-        //ZigZagger redZigZagger1 = Instantiate(zigZaggerPrefab);
-        //ZigZagger redZigZagger2 = Instantiate(zigZaggerPrefab);
-        //ChainKiller redChainKiller1 = Instantiate(chainKillerPrefab);
-        //ChainKiller redChainKiller2 = Instantiate(chainKillerPrefab);
-        //Cannon redCannon1 = Instantiate(cannonPrefab);
-        //Cannon redCannon2 = Instantiate(cannonPrefab);
-        //Bomber redBomber = Instantiate(bomberPrefab);
-        //Vip redVip = Instantiate(vipPrefab);
+        ZigZagger redZigZagger1 = Instantiate(zigZaggerPrefab);
+        ZigZagger redZigZagger2 = Instantiate(zigZaggerPrefab);
+        ChainKiller redChainKiller1 = Instantiate(chainKillerPrefab);
+        ChainKiller redChainKiller2 = Instantiate(chainKillerPrefab);
+        Cannon redCannon1 = Instantiate(cannonPrefab);
+        Cannon redCannon2 = Instantiate(cannonPrefab);
+        Bomber redBomber = Instantiate(bomberPrefab);
+        Vip redVip = Instantiate(vipPrefab);
         //CannonFodder redCannonFodder1 = Instantiate(cannonFodderPrefab);
         //CannonFodder redCannonFodder2 = Instantiate(cannonFodderPrefab);
         //CannonFodder redCannonFodder3 = Instantiate(cannonFodderPrefab);
@@ -87,56 +92,40 @@ public class StoredPieces : MonoBehaviour
         //CannonFodder redCannonFodder7 = Instantiate(cannonFodderPrefab);
         //CannonFodder redCannonFodder8 = Instantiate(cannonFodderPrefab);
 
-        //redPieceList.Add(blueZigZagger1);
-        //redPieceList.Add(blueZigZagger2);
-        //redPieceList.Add(blueChainKiller1);
-        //redPieceList.Add(blueChainKiller2);
-        //redPieceList.Add(blueCannon1);
-        //redPieceList.Add(blueCannon2);
-        //redPieceList.Add(blueBomber);
-        //redPieceList.Add(blueVip);
-        //redPieceList.Add(blueCannonFodder1);
-        //redPieceList.Add(blueCannonFodder2);
-        //redPieceList.Add(blueCannonFodder3);
-        //redPieceList.Add(blueCannonFodder4);
-        //redPieceList.Add(blueCannonFodder5);
-        //redPieceList.Add(blueCannonFodder6);
-        //redPieceList.Add(blueCannonFodder7);
-        //redPieceList.Add(blueCannonFodder8);
+        redPieceList.Add(redZigZagger1);
+        redPieceList.Add(redZigZagger2);
+        redPieceList.Add(redChainKiller1);
+        redPieceList.Add(redChainKiller2);
+        redPieceList.Add(redCannon1);
+        redPieceList.Add(redCannon2);
+        redPieceList.Add(redBomber);
+        redPieceList.Add(redVip);
+       //redPieceList.Add(redCannonFodder1);
+       //redPieceList.Add(redCannonFodder2);
+       //redPieceList.Add(redCannonFodder3);
+       //redPieceList.Add(redCannonFodder4);
+       //redPieceList.Add(redCannonFodder5);
+       //redPieceList.Add(redCannonFodder6);
+       //redPieceList.Add(redCannonFodder7);
+       //redPieceList.Add(redCannonFodder8);
 
         selected = -1;
 
         // define snap points
-        buttons = new Rect[grid.dims];
+        blueButtons = new Rect[grid.dims];
+        redButtons = new Rect[grid.dims];
         for (int i = 0; i < grid.dims; i += 2)
         {
-            buttons[i] = new Rect(-7.75f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
-            buttons[i + 1] = new Rect(-6.25f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
+            blueButtons[i] = new Rect(-7.75f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
+            blueButtons[i + 1] = new Rect(-6.25f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
         }
-        
 
-        // load purchased units from shop
-        //unitIcons = new List<GameObject>();
+        for (int i = 0; i < grid.dims; i += 2)
+        {
+            redButtons[i] = new Rect(7.75f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
+            redButtons[i + 1] = new Rect(6.25f - iconWidth / 2f, 3.5f - iconWidth / 2f - i * 0.75f, iconWidth, iconWidth);
+        }
 
-        // temporary for test
-        //Debug.Log("Object Instantiating");
-        //GameObject icon = Instantiate(iconPrefab);
-        //player1.pieceList[0] = Instantiate(zigZaggerPrefab);
-        //icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-        //icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-        //unitIcons.Add(icon);
-        //
-        //icon = Instantiate(iconPrefab);
-        //icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-        //icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-        //unitIcons.Add(icon);
-        //
-        //icon = Instantiate(iconPrefab);
-        //icon.transform.localScale = new Vector3(iconWidth, iconWidth, 0);
-        //icon.GetComponent<PieceStorage>().UnitPrefab = tempPrefab;
-        //unitIcons.Add(icon);
-
-        //PlaceIcons();
         PlacePieces();
     }
 
@@ -162,7 +151,7 @@ public class StoredPieces : MonoBehaviour
             //SetBorderColor(i, new Color(0f, 0f, 0f, 0f));
             //Debug.Log("Border set to clear");
 
-            if (buttons[i].Contains(worldMouse))
+            if (blueButtons[i].Contains(worldMouse))
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -171,6 +160,18 @@ public class StoredPieces : MonoBehaviour
                 }
                 break;
             }
+
+            if (redButtons[i].Contains(worldMouse))
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    //SetBorderColor(i, grid.LightGreen);
+                    selected = i;
+                }
+                break;
+            }
+
+
         }
 
         if (selected >= 0)
@@ -187,7 +188,17 @@ public class StoredPieces : MonoBehaviour
                 grid.TileSelector.transform.position = grid.TileToTransform(hoveredTile); // snap selector to tile
 
                 // determine if unit can be placed there
-                if (hoveredTile.y < grid.PlaceLimit && grid.GetPieceAt((int)hoveredTile.x, (int)hoveredTile.y) == null)
+                /*if (hoveredTile.y < grid.PlaceLimit && grid.GetPieceAt((int)hoveredTile.x, (int)hoveredTile.y) == null)
+                {
+                    grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.LightGreen;
+                    canPlace = true;
+                }
+                else
+                {
+                    grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.Red;
+                }*/
+
+                if((blueTurnToPlace == true && hoveredTile.y < 4) || (redTurnToPlace == true && hoveredTile.y > 5))
                 {
                     grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.LightGreen;
                     canPlace = true;
@@ -204,12 +215,20 @@ public class StoredPieces : MonoBehaviour
                 if(blueTurnToPlace == true)
                 {
                     grid.PlacePiece(bluePieceList[selected].GetComponent<Piece>(), grid.WorldToTile(worldMouse), "blue");
-                    removeButton(buttons, selected);
-                    //removePiece(bluePieceList[selected]);
+                    removeButton(blueButtons, selected);
+                    bluePiecesPlaced++;
+                    if(bluePiecesPlaced == 8)
+                    {
+                        blueTurnToPlace = false;
+                        redTurnToPlace = true;
+                        Debug.Log("It is now reds turn to place");
+                    }
                 }
                 else if(redTurnToPlace == true)
                 {
                     grid.PlacePiece(redPieceList[selected], grid.WorldToTile(worldMouse), "red");
+                    removeButton(redButtons, selected);
+                    redPiecesPlaced++;
                 }
 
                 //GameObject deleteThis = bluePieceList[selected];
@@ -229,7 +248,12 @@ public class StoredPieces : MonoBehaviour
     {
         for (int i = 0; i < bluePieceList.Count; i++)
         {
-            bluePieceList[i].transform.position = buttons[i].center;
+            bluePieceList[i].transform.position = blueButtons[i].center;
+        }
+
+        for (int i = 0; i < redPieceList.Count; i++)
+        {
+            redPieceList[i].transform.position = redButtons[i].center;
         }
     }
 
