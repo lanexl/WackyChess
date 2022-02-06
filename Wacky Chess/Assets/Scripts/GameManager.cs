@@ -25,6 +25,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game Scene");
     }
 
+    public void HelpLoad()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     /// <summary>
     /// Method to Check for win conditions at the end of each turn
     /// </summary>
