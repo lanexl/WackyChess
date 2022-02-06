@@ -6,6 +6,9 @@ public class StoredPieces : MonoBehaviour
 {
     public int iconWidth = 1;
     public GameGrid grid;
+    bool blueTurnToPlace;
+    bool redTurnToPlace;
+
     //public GameObject iconPrefab;
     //public GameObject tempPrefab;
 
@@ -21,81 +24,85 @@ public class StoredPieces : MonoBehaviour
     private Rect[] buttons; // locations on screen that unit icons snap to
     private int selected; // index of currently selected unit to be placed
 
-    public List<Piece> whitePieceList = new List<Piece>();
-    public List<Piece> blackPieceList = new List<Piece>();
+    public List<Piece> bluePieceList = new List<Piece>();
+    public List<Piece> redPieceList = new List<Piece>();
 
     // Start is called before the first frame update
     void Start()
     {
-        // Create and Instantiate White Pieces
-        ZigZagger whiteZigZagger1 = Instantiate(zigZaggerPrefab);
-        ZigZagger whiteZigZagger2 = Instantiate(zigZaggerPrefab);
-        ChainKiller whiteChainKiller1 = Instantiate(chainKillerPrefab);
-        ChainKiller whiteChainKiller2 = Instantiate(chainKillerPrefab);
-        Cannon whiteCannon1 = Instantiate(cannonPrefab);
-        Cannon whiteCannon2 = Instantiate(cannonPrefab);
-        Bomber whiteBomber = Instantiate(bomberPrefab);
-        Vip whiteVip = Instantiate(vipPrefab);
-        //CannonFodder whiteCannonFodder1 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder2 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder3 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder4 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder5 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder6 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder7 = Instantiate(cannonFodderPrefab);
-        //CannonFodder whiteCannonFodder8 = Instantiate(cannonFodderPrefab);
+        // Blue places before red at the start of the game
+        blueTurnToPlace = true;
+        redTurnToPlace = false;
 
-        whitePieceList.Add(whiteZigZagger1);
-        whitePieceList.Add(whiteZigZagger2);
-        whitePieceList.Add(whiteChainKiller1);
-        whitePieceList.Add(whiteChainKiller2);
-        whitePieceList.Add(whiteCannon1);
-        whitePieceList.Add(whiteCannon2);
-        whitePieceList.Add(whiteBomber);
-        whitePieceList.Add(whiteVip);
-        //whitePieceList.Add(whiteCannonFodder1);
-        //whitePieceList.Add(whiteCannonFodder2);
-        //whitePieceList.Add(whiteCannonFodder3);
-        //whitePieceList.Add(whiteCannonFodder4);
-        //whitePieceList.Add(whiteCannonFodder5);
-        //whitePieceList.Add(whiteCannonFodder6);
-        //whitePieceList.Add(whiteCannonFodder7);
-        //whitePieceList.Add(whiteCannonFodder8);
+        // Create and Instantiate blue Pieces
+        ZigZagger blueZigZagger1 = Instantiate(zigZaggerPrefab);
+        ZigZagger blueZigZagger2 = Instantiate(zigZaggerPrefab);
+        ChainKiller blueChainKiller1 = Instantiate(chainKillerPrefab);
+        ChainKiller blueChainKiller2 = Instantiate(chainKillerPrefab);
+        Cannon blueCannon1 = Instantiate(cannonPrefab);
+        Cannon blueCannon2 = Instantiate(cannonPrefab);
+        Bomber blueBomber = Instantiate(bomberPrefab);
+        Vip blueVip = Instantiate(vipPrefab);
+        //CannonFodder blueCannonFodder1 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder2 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder3 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder4 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder5 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder6 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder7 = Instantiate(cannonFodderPrefab);
+        //CannonFodder blueCannonFodder8 = Instantiate(cannonFodderPrefab);
 
-        // Create and Instantiate Black Pieces
-        //ZigZagger blackZigZagger1 = Instantiate(zigZaggerPrefab);
-        //ZigZagger blackZigZagger2 = Instantiate(zigZaggerPrefab);
-        //ChainKiller blackChainKiller1 = Instantiate(chainKillerPrefab);
-        //ChainKiller blackChainKiller2 = Instantiate(chainKillerPrefab);
-        //Cannon blackCannon1 = Instantiate(cannonPrefab);
-        //Cannon blackCannon2 = Instantiate(cannonPrefab);
-        //Bomber blackBomber = Instantiate(bomberPrefab);
-        //Vip blackVip = Instantiate(vipPrefab);
-        //CannonFodder blackCannonFodder1 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder2 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder3 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder4 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder5 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder6 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder7 = Instantiate(cannonFodderPrefab);
-        //CannonFodder blackCannonFodder8 = Instantiate(cannonFodderPrefab);
+        bluePieceList.Add(blueZigZagger1);
+        bluePieceList.Add(blueZigZagger2);
+        bluePieceList.Add(blueChainKiller1);
+        bluePieceList.Add(blueChainKiller2);
+        bluePieceList.Add(blueCannon1);
+        bluePieceList.Add(blueCannon2);
+        bluePieceList.Add(blueBomber);
+        bluePieceList.Add(blueVip);
+        //bluePieceList.Add(blueCannonFodder1);
+        //bluePieceList.Add(blueCannonFodder2);
+        //bluePieceList.Add(blueCannonFodder3);
+        //bluePieceList.Add(blueCannonFodder4);
+        //bluePieceList.Add(blueCannonFodder5);
+        //bluePieceList.Add(blueCannonFodder6);
+        //bluePieceList.Add(blueCannonFodder7);
+        //bluePieceList.Add(blueCannonFodder8);
 
-        //blackPieceList.Add(whiteZigZagger1);
-        //blackPieceList.Add(whiteZigZagger2);
-        //blackPieceList.Add(whiteChainKiller1);
-        //blackPieceList.Add(whiteChainKiller2);
-        //blackPieceList.Add(whiteCannon1);
-        //blackPieceList.Add(whiteCannon2);
-        //blackPieceList.Add(whiteBomber);
-        //blackPieceList.Add(whiteVip);
-        //blackPieceList.Add(whiteCannonFodder1);
-        //blackPieceList.Add(whiteCannonFodder2);
-        //blackPieceList.Add(whiteCannonFodder3);
-        //blackPieceList.Add(whiteCannonFodder4);
-        //blackPieceList.Add(whiteCannonFodder5);
-        //blackPieceList.Add(whiteCannonFodder6);
-        //blackPieceList.Add(whiteCannonFodder7);
-        //blackPieceList.Add(whiteCannonFodder8);
+        // Create and Instantiate red Pieces
+        //ZigZagger redZigZagger1 = Instantiate(zigZaggerPrefab);
+        //ZigZagger redZigZagger2 = Instantiate(zigZaggerPrefab);
+        //ChainKiller redChainKiller1 = Instantiate(chainKillerPrefab);
+        //ChainKiller redChainKiller2 = Instantiate(chainKillerPrefab);
+        //Cannon redCannon1 = Instantiate(cannonPrefab);
+        //Cannon redCannon2 = Instantiate(cannonPrefab);
+        //Bomber redBomber = Instantiate(bomberPrefab);
+        //Vip redVip = Instantiate(vipPrefab);
+        //CannonFodder redCannonFodder1 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder2 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder3 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder4 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder5 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder6 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder7 = Instantiate(cannonFodderPrefab);
+        //CannonFodder redCannonFodder8 = Instantiate(cannonFodderPrefab);
+
+        //redPieceList.Add(blueZigZagger1);
+        //redPieceList.Add(blueZigZagger2);
+        //redPieceList.Add(blueChainKiller1);
+        //redPieceList.Add(blueChainKiller2);
+        //redPieceList.Add(blueCannon1);
+        //redPieceList.Add(blueCannon2);
+        //redPieceList.Add(blueBomber);
+        //redPieceList.Add(blueVip);
+        //redPieceList.Add(blueCannonFodder1);
+        //redPieceList.Add(blueCannonFodder2);
+        //redPieceList.Add(blueCannonFodder3);
+        //redPieceList.Add(blueCannonFodder4);
+        //redPieceList.Add(blueCannonFodder5);
+        //redPieceList.Add(blueCannonFodder6);
+        //redPieceList.Add(blueCannonFodder7);
+        //redPieceList.Add(blueCannonFodder8);
 
         selected = -1;
 
@@ -144,7 +151,7 @@ public class StoredPieces : MonoBehaviour
         Vector3 worldMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // make all borders invisible by default
-        for (int i = 0; i < whitePieceList.Count+1; i++)
+        for (int i = 0; i < bluePieceList.Count+1; i++)
         { // uses units count as limit so it will ony select if a unit is actually there
             if (i == selected)
             {
@@ -193,14 +200,22 @@ public class StoredPieces : MonoBehaviour
                     grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.Red;
                 }
             }
-
+            
             // actually place unit
             if (canPlace && Input.GetMouseButtonUp(0) && !grid.Dragging)
-            { // up so it doesn't instantly pick up and also works with click and drag
-                grid.PlacePiece(whitePieceList[selected], grid.WorldToTile(worldMouse));
-                //GameObject deleteThis = whitePieceList[selected];
-                Destroy(whitePieceList[selected]);
-                whitePieceList.RemoveAt(selected);
+            {
+                if(blueTurnToPlace == true)
+                {
+                    grid.PlacePiece(bluePieceList[selected], grid.WorldToTile(worldMouse), "blue");
+                }
+                else if(redTurnToPlace == true)
+                {
+                    grid.PlacePiece(redPieceList[selected], grid.WorldToTile(worldMouse), "red");
+                }
+                
+                //GameObject deleteThis = bluePieceList[selected];
+                Destroy(bluePieceList[selected]);
+                bluePieceList.RemoveAt(selected);
 
                 //Destroy(deleteThis);
                 selected = -1; // nothing selected
@@ -211,53 +226,45 @@ public class StoredPieces : MonoBehaviour
         }
     }
 
-    /*private void PlaceIcons()
-    {
-        for (int i = 0; i < unitIcons.Count; i++)
-        {
-            unitIcons[i].transform.position = buttons[i].center;
-        }
-    }*/
-
     private void PlacePieces()
     {
-        for (int i = 0; i < whitePieceList.Count; i++)
+        for (int i = 0; i < bluePieceList.Count; i++)
         {
-            whitePieceList[i].transform.position = buttons[i].center;
+            bluePieceList[i].transform.position = buttons[i].center;
         }
     }
 
     // sets the border of an icon to the input color
     private void SetBorderColor(int index, Color newColor)
-   {
-       whitePieceList[index].transform.gameObject.GetComponent<SpriteRenderer>().color = newColor;
-   }
+    {
+       bluePieceList[index].transform.gameObject.GetComponent<SpriteRenderer>().color = newColor;
+    }
 
     /// <summary>
     /// Method to remove a piece that has been captured from this players piece list. Piece will be destroyed and then removed from the list
     /// </summary>
     public void removePiece(Piece pieceToRemove)
     {
-        // White Pieces
-        for (int i = 0; i < whitePieceList.Count; i++)
+        // blue Pieces
+        for (int i = 0; i < bluePieceList.Count; i++)
         {
-            if (whitePieceList.IndexOf(pieceToRemove) != -1)
+            if (bluePieceList.IndexOf(pieceToRemove) != -1)
             {
-                int indexToRemove = whitePieceList.IndexOf(pieceToRemove);
-                GameObject.Destroy(whitePieceList[indexToRemove]);
-                whitePieceList.RemoveAt(indexToRemove);
+                int indexToRemove = bluePieceList.IndexOf(pieceToRemove);
+                GameObject.Destroy(bluePieceList[indexToRemove]);
+                bluePieceList.RemoveAt(indexToRemove);
                 return;
             }
         }
 
-        // Black Pieces
-        for (int i = 0; i < whitePieceList.Count; i++)
+        // red Pieces
+        for (int i = 0; i < bluePieceList.Count; i++)
         {
-            if (blackPieceList.IndexOf(pieceToRemove) != -1)
+            if (redPieceList.IndexOf(pieceToRemove) != -1)
             {
-                int indexToRemove = blackPieceList.IndexOf(pieceToRemove);
-                GameObject.Destroy(blackPieceList[indexToRemove]);
-                blackPieceList.RemoveAt(indexToRemove);
+                int indexToRemove = redPieceList.IndexOf(pieceToRemove);
+                GameObject.Destroy(redPieceList[indexToRemove]);
+                redPieceList.RemoveAt(indexToRemove);
                 return;
             }
         }
