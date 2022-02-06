@@ -66,7 +66,7 @@ public class GameGrid : MonoBehaviour
 
         if(pieceColor == "blue")
         {
-            newPiece.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1);
+            newPiece.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 255);
             bluePieceList.Add(newPiece);
         }
         else if(pieceColor == "red")
