@@ -194,6 +194,8 @@ public class GameGrid : MonoBehaviour
                 // highlight place tile
                 bool canPlace = false;
                 Vector2 hovered = Vector2.zero;
+
+
                 if (area.Contains(worldMouse))
                 {
                     Debug.Log("hovering");
