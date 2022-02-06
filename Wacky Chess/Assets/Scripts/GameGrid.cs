@@ -19,13 +19,16 @@ public class GameGrid : MonoBehaviour
     public GameObject defaultPrefab; // set in editor
     public GameObject wallPrefab; // set in editor
 
-    private List<GameObject> entities; // units and obstacles
+    //private List<GameObject> entities; // units and obstacles
+    private List<Piece> pieceList;
     private Rect area;
-    private GameObject dragTarget; // unit being clicked and dragged
+    //private GameObject dragTarget; // unit being clicked and dragged
+    private Piece dragTarget; // Piece being clicked and dragged
 
     public float TileLength { get { return transform.localScale.x / dims; } } // assumes grid is square and width = scale
     public Rect Area { get { return area; } }
-    public List<GameObject> Entities { get { return entities; } }
+    //public List<GameObject> Entities { get { return entities; } }
+    public List<Piece> PieceList { get { return pieceList; } }
     public bool SetupPhase; // true: setup phase, false: battle phase
     public int PlaceLimit { get { return 4; } }
 
@@ -49,14 +52,15 @@ public class GameGrid : MonoBehaviour
         tileSelector = GameObject.Find("TileSelector");
         tileSelector.transform.localScale = new Vector3(TileLength, TileLength, 1f);
 
-        entities = new List<GameObject>();
+        //entities = new List<GameObject>();
+        pieceList = new List<Piece>();
         area = new Rect(transform.position.x - transform.localScale.x / 2f, transform.position.y - transform.localScale.y / 2f, transform.localScale.x, transform.localScale.y);
         Debug.Log("Start end");
 
     }
 
     // adds a new entity to the board, if a unit is already there, does nothing
-    public void PlaceEntity(GameObject entityPrefab, Vector2 tile)
+    /*public void PlaceEntity(GameObject entityPrefab, Vector2 tile)
     {
         if (GetEntityAt((int)tile.x, (int)tile.y) != null)
         {
@@ -69,6 +73,25 @@ public class GameGrid : MonoBehaviour
 
         newEntity.GetComponent<Tile>().grid = this;
         // object sets its own grid location
+    }*/
+
+    /// <summary>
+    /// Adds a new Piece to the board, if a piece is already there, does nothing
+    /// </summary>
+    /// <param name="piecePrefab"></param>
+    /// <param name="tile"></param>
+    public void PlacePiece(Piece piecePrefab, Vector2 tile)
+    {
+        if(GetPieceAt((int)tile.x, (int)tile.y) != null)
+        {
+            return; // Don't place a piece on top of an existing one
+        }
+
+        Piece newPiece = Instantiate(piecePrefab, TileToTransform(tile), Quaternion.identity);
+        newPiece.transform.localScale = new Vector3(TileLength, TileLength, 1); // Fill the tile entirely
+        pieceList.Add(newPiece);
+
+        newPiece.GetComponent<Tile>().grid = this;
     }
 
     // converts a tile location to a transform position. 0,0 is the bottom left tile of the grid
@@ -95,7 +118,7 @@ public class GameGrid : MonoBehaviour
     }
 
     // returns the unit located at the input tile. Assumes one unit per tile
-    public GameObject GetEntityAt(int x, int y)
+    /*public GameObject GetEntityAt(int x, int y)
     {
         foreach (GameObject entity in entities)
         {
@@ -107,13 +130,26 @@ public class GameGrid : MonoBehaviour
         }
 
         return null;
+    }*/
+
+    public Piece GetPieceAt(int x, int y)
+    {
+        foreach(Piece piece in pieceList)
+        {
+            Tile script = piece.GetComponent<Tile>();
+            if(script.GridPosition.x == x && script.GridPosition.y == y)
+            {
+                return piece;
+            }
+        }
+        return null;
     }
 
     // each grid object is either a unit or an obstacle
-    public bool IsUnit(GameObject entity)
+    /*public bool IsUnit(GameObject entity)
     {
         return entity.GetComponent<Piece>() != null;
-    }
+    }*/
 
     // determines if a tile location exists on the grid
     public bool IsInBounds(int x, int y)
@@ -130,7 +166,8 @@ public class GameGrid : MonoBehaviour
         if (SetupPhase)
         {
             // check if picking up unit
-            if (Input.GetMouseButtonDown(0))
+
+            /*if (Input.GetMouseButtonDown(0))
             {
                 for (int i = 0; i < entities.Count; i++)
                 {
@@ -142,6 +179,22 @@ public class GameGrid : MonoBehaviour
                     {
                         dragTarget = entities[i];
                         entities.RemoveAt(i);
+                    }
+                }
+            }*/
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                for (int i = 0; i < pieceList.Count; i++)
+                {
+                    Piece unitScript = pieceList[i].GetComponent<Piece>();
+                    Vector3 pos = pieceList[i].transform.position;
+                    float scale = pieceList[i].transform.localScale.x;
+                    Rect area = new Rect(pos.x - scale / 2f, pos.y - scale / 2f, scale, scale);
+                    if (area.Contains(worldMouse) && unitScript != null)
+                    {
+                        dragTarget = pieceList[i];
+                        pieceList.RemoveAt(i);
                     }
                 }
             }
@@ -161,7 +214,7 @@ public class GameGrid : MonoBehaviour
                     hovered = WorldToTile(worldMouse);
                     tileSelector.transform.position = TileToTransform(hovered);
 
-                    if (hovered.y < PlaceLimit && (hovered.Equals(dragTarget.GetComponent<Piece>().GridPosition) || GetEntityAt((int)hovered.x, (int)hovered.y) == null))
+                    if (hovered.y < PlaceLimit && (hovered.Equals(dragTarget.GetComponent<Piece>().GridPosition) || GetPieceAt((int)hovered.x, (int)hovered.y) == null))
                     {
                         tileSelector.GetComponent<SpriteRenderer>().color = lightGreen;
                         canPlace = true;
@@ -194,7 +247,7 @@ public class GameGrid : MonoBehaviour
                 }
             }
         }
-        else
+        /*else
         { // battle phase
             // clear dead units
             for (int i = 0; i < entities.Count; i++)
@@ -210,6 +263,6 @@ public class GameGrid : MonoBehaviour
                     //}
                 }
             }
-        }
+        }*/
     }
 }

@@ -183,7 +183,7 @@ public class StoredPieces : MonoBehaviour
                 grid.TileSelector.transform.position = grid.TileToTransform(hoveredTile); // snap selector to tile
 
                 // determine if unit can be placed there
-                if (hoveredTile.y < grid.PlaceLimit && grid.GetEntityAt((int)hoveredTile.x, (int)hoveredTile.y) == null)
+                if (hoveredTile.y < grid.PlaceLimit && grid.GetPieceAt((int)hoveredTile.x, (int)hoveredTile.y) == null)
                 {
                     grid.TileSelector.GetComponent<SpriteRenderer>().color = grid.LightGreen;
                     canPlace = true;
@@ -197,7 +197,7 @@ public class StoredPieces : MonoBehaviour
             // actually place unit
             if (canPlace && Input.GetMouseButtonUp(0) && !grid.Dragging)
             { // up so it doesn't instantly pick up and also works with click and drag
-                grid.PlaceEntity(whitePieceList[selected].GetComponent<PieceStorage>().UnitPrefab, grid.WorldToTile(worldMouse));
+                grid.PlacePiece(whitePieceList[selected], grid.WorldToTile(worldMouse));
                 //GameObject deleteThis = whitePieceList[selected];
                 Destroy(whitePieceList[selected]);
                 whitePieceList.RemoveAt(selected);
