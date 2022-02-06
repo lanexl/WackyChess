@@ -257,7 +257,14 @@ public class GameGrid : MonoBehaviour
             // Blues Turn
             if (bluesTurn == true)
             {
-
+                // loop through blue pieces and check if they are being hovered over
+                foreach(Piece p in bluePieceList)
+                {
+                    if(p.GridPosition == hoveredTile)
+                    {
+                        //TileSelector.GetComponent<SpriteRenderer>().color = LightGreen;
+                    }
+                }
             }
 
             // Reds Turn
