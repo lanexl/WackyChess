@@ -21,7 +21,7 @@ public class Piece : Tile
     /// Method to return a list of tiles that this piece can move to. This will be overridden by each piece type for their movement rules.
     /// </summary>
     /// <returns></returns>
-    public virtual List<Tile> PossibleMoves(int currentX, int currentY)
+    public virtual List<Tile> PossibleMoves()
     {
         List<Tile> tempTileList = new List<Tile>();
         return tempTileList;

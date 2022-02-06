@@ -20,7 +20,7 @@ public class CannonFodder : Piece
     /// Returns a list of possible tiles that this CannonFodder Piece can move to. CannonFodder Pieces move and attack directly forward 1 square.
     /// </summary>
     /// <returns></returns>
-    public override List<Tile> PossibleMoves(int currentX, int currentY)
+    public override List<Tile> PossibleMoves()
     {
         List<Tile> possibleMoves = new List<Tile>();
 
