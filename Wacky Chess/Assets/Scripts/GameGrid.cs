@@ -258,10 +258,13 @@ public class GameGrid : MonoBehaviour
             if (bluesTurn == true)
             {
                 // loop through blue pieces and check if they are being hovered over
-                foreach(Piece p in bluePieceList)
+                for(int i = 0; i < bluePieceList.Count; i++)
                 {
-                    if(p.GridPosition == hoveredTile)
-                    {
+                    if(bluePieceList[i].GridPosition == hoveredTile)
+                    { 
+                        // These debugs prove our piece lists aren't working properly
+                        Debug.Log(bluePieceList[i].gameObject);
+                        Debug.Log("Hovering!!!!!");
                         //TileSelector.GetComponent<SpriteRenderer>().color = LightGreen;
                     }
                 }
