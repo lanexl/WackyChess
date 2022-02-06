@@ -22,9 +22,9 @@ public class Bomber : Piece
     /// within 1 tile surrounding the attacked enemy
     /// </summary>
     /// <returns></returns>
-    public override List<Tile> PossibleMoves()
+    public override List<float> PossibleMoves()
     {
-        List<Tile> tempTileList = new List<Tile>();
-        return tempTileList;
+        List<float> tempFloatList = new List<float>();
+        return tempFloatList;
     }
 }

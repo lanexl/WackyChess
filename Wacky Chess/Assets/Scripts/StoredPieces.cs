@@ -229,6 +229,12 @@ public class StoredPieces : MonoBehaviour
                     grid.PlacePiece(redPieceList[selected], grid.WorldToTile(worldMouse), "red");
                     removeButton(redButtons, selected);
                     redPiecesPlaced++;
+                    if(redPiecesPlaced == 8)
+                    {
+                        redTurnToPlace = false;
+                        grid.SetupPhase = false;
+                        Debug.Log("Setup phase complete");
+                    }
                 }
 
                 //GameObject deleteThis = bluePieceList[selected];

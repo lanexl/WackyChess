@@ -25,6 +25,8 @@ public class GameGrid : MonoBehaviour
     private Color lightBlue = new Color(40f / 255f, 1f, 229f / 255f);
     private Color lightGreen = new Color(134f / 255f, 1f, 40f / 255f);
     private Color red = new Color(186f / 255f, 27f / 255f, 27f / 255f);
+    bool bluesTurn;
+    bool redsTurn;
 
     public float TileLength { get { return transform.localScale.x / dims; } } // assumes grid is square and width = scale
     public Rect Area { get { return area; } }
@@ -42,6 +44,8 @@ public class GameGrid : MonoBehaviour
     void Start()
     {
         SetupPhase = true;
+        bluesTurn = true;
+        redsTurn = false;
         tileSelector = GameObject.Find("TileSelector");
         tileSelector.transform.localScale = new Vector3(TileLength, TileLength, 1f);
         bluePieceList = new List<Piece>();
@@ -115,7 +119,7 @@ public class GameGrid : MonoBehaviour
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <returns></returns>
-    public Piece GetPieceAt(int x, int y)
+    public Piece GetPieceAt(float x, float y)
     {
         foreach(Piece piece in bluePieceList)
         {
@@ -146,6 +150,18 @@ public class GameGrid : MonoBehaviour
     public bool IsInBounds(int x, int y)
     {
         return x >= 0 && y >= 0 && y < dims && x < dims;
+    }
+
+    public void MovePiece(float xCoord, float yCoord, Piece pieceToMove)
+    {
+        if (GetPieceAt(xCoord, yCoord) != null)
+        {
+           // There is already a piece on this square, so capture it
+
+        }
+        pieceToMove.gameObject.transform.position = new Vector3(xCoord, yCoord);
+        pieceToMove.transform.localScale = new Vector3(TileLength, TileLength, 1);
+        pieceToMove.GetComponent<Tile>().grid = this;
     }
 
     // Update is called once per frame
@@ -234,22 +250,22 @@ public class GameGrid : MonoBehaviour
                 }
             }
         }
-        /*else
-        { // battle phase
-            // clear dead units
-            for (int i = 0; i < entities.Count; i++)
+        // Setup phase is done, turn phase code
+        else
+        {
+            Vector2 hoveredTile = WorldToTile(worldMouse);
+            // Blues Turn
+            if (bluesTurn == true)
             {
-                if (IsUnit(entities[i]))
-                {
-                    //if (entities[i].GetComponent<Piece>().Health <= 0)
-                    //{
-                    //    DestroyImmediate(entities[i]);
-                    //    entities.RemoveAt(i);
-                    //    i--;
-                    //
-                    //}
-                }
+
             }
-        }*/
+
+            // Reds Turn
+            if(redsTurn == true)
+            {
+
+            }
+        }
+        
     }
 }

@@ -21,7 +21,7 @@ public class ChainKiller : Piece
     /// Chain Killer Pieces can move up to three times in a diagonal direction of the player's choice, and can attack any enemy tiles it lands on.
     /// </summary>
     /// <returns></returns>
-    public override List<Tile> PossibleMoves()
+    public override List<float> PossibleMoves()
     {
         /*
          * Possible Moves: 
@@ -30,7 +30,7 @@ public class ChainKiller : Piece
          * Down-Left: x-1.5, y-1.5
          * Down-Right: x+1.5, y-1.5
         */
-        List<Tile> tempTileList = new List<Tile>();
-        return tempTileList;
+        List<float> tempFloatList = new List<float>();
+        return tempFloatList;
     }
 }
